@@ -28,7 +28,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./api:/api
+      - ./api:/api:ro
   front:
     depends_on:
       - api
