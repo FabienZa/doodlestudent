@@ -11,6 +11,4 @@ RUN apt install -y maven openjdk-8-jdk libpng16-16 libjasper1 libdc1394-22
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 RUN export JAVA_HOME
 
-RUN ./mvnw compile quarkus:dev
-
 CMD ["./target/tlcdemoApp-1.0.0-SNAPSHOT-runner"]
