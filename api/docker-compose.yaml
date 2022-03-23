@@ -1,6 +1,7 @@
 version: "3.8"
 services:
   api:
+    container_name: api
     restart: always
     build: ./
     volumes:
@@ -8,6 +9,6 @@ services:
     labels:
       traefik.enable: true
       traefik.docker.network: traefik_web
-      traefik.http.routers.api.entrypoints: api
-      traefik.http.routers.api.rule: "Host(`api.tlc.loinvoyant.com`)"
-      traefik.http.services.api.loadbalancer.server.port: 8080 
+      traefik.http.routers.api.entrypoints: websecure
+    ports:
+      - 8080:8080

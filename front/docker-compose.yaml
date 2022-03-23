@@ -2,6 +2,7 @@ version: "3.8"
 services:
   front:
     restart: always
+    container_name: front
     build: ./
     volumes:
       - ./:/front
