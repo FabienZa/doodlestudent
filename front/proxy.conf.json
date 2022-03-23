@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "http://tlc.loinvoyant.com:8080",
+    "target": "http://api.tlc.loinvoyant.com:8080",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true

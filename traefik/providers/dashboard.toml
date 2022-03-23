@@ -1,0 +1,11 @@
+[http]
+  [http.routers]
+    [http.routers.secure-api-dashboard]
+      entryPoints = ["api"]
+      service = "api@internal"
+      middlewares = ["secure-internal"]
+      rule = "Host(`tlc.loinvoyant.com`)"
+
+  [http.middlewares]
+    [http.middlewares.secure-internal.basicAuth]
+      usersFile = "/passwd/.htpasswd"

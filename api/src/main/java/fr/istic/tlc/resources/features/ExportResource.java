@@ -121,7 +121,7 @@ public class ExportResource {
 			Label label;
 			label = new Label(0, 0, "Sondage \"" + poll.getTitle() + "\"", formatTitle);
 			mainSheet.addCell(label);
-			label = new Label(0, 1, "http://tlc.loinvoyant.com:3000/polls/" + poll.getSlug());
+			label = new Label(0, 1, "http://front.tlc.loinvoyant.com/polls/" + poll.getSlug());
 			mainSheet.addCell(label);
 
 			// On récupere les users qui ont voté dans ce sondage

@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  etherpad:
+    restart: always
+    image: etherpad/etherpad:1.8
+    volumes:
+      - ../api/APIKEY.txt:/opt/etherpad-lite/APIKEY.txt
+    networks:
+      - traefik_web
+    labels:
+      traefik.enable: true
+      traefik.docker.network: traefik_web
+      traefik.http.routers.etherpad.entrypoints: websecure
+      traefik.http.routers.etherpad.rule: "Host(`etherpad.tlc.loinvoyant.com`)"
+      traefik.http.services.etherpad.loadbalancer.server.port: 9001
+
+networks:
+  traefik_web:
+    external: true

@@ -16,7 +16,7 @@ exports.config = {
     browserName: 'chrome'
   },
   directConnect: true,
-  baseUrl: 'http://tlc.loinvoyant.com:4200/',
+  baseUrl: 'http://api.tlc.loinvoyant.com:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,

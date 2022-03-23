@@ -1,0 +1,45 @@
+entryPoints:
+  web:
+    address: :80
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+
+  websecure:
+    address: :443
+    http:
+      tls:
+        certResolver: myresolver
+        #middlewares:
+        #- SecHeaders@file
+        
+  # api:
+  #   address: :8080
+
+log:
+  level: DEBUG
+
+accessLog: {}
+
+providers:
+  docker:
+    exposedByDefault: false
+  
+  #file:
+    #directory: "/providers/"
+    #watch: true
+
+certificatesResolvers:
+  myresolver:
+    acme:
+      email: "fabien@zaplana.fr"
+      storage: "/letsencrypt/acme.json"
+      tlsChallenge: {}
+
+#pilot:
+  #token: "e1c9875a-f77a-4d25-823c-55d6ec0f9d12"
+
+api:
+  dashboard: true

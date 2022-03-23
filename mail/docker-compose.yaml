@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  mail:
+    image: bytemark/smtp
+    restart: always
+    labels:
+      traefik.enable: true
+      traefik.docker.network: traefik_web
+      traefik.http.routers.mail.entrypoints: websecure
+      traefik.http.routers.mail.rule: "Host(`mail.tlc.loinvoyant.com`)"
+      traefik.http.services.mail.loadbalancer.server.port: 25 

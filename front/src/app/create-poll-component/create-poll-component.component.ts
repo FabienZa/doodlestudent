@@ -251,8 +251,8 @@ export class CreatePollComponentComponent implements OnInit {
 
       this.pollService.updtatePoll(this.poll).subscribe(p1 => {
         this.poll = p1;
-        this.urlsondage = 'http://tlc.loinvoyant.com:4200/answer/' + p1.slug;
-        this.urlsondageadmin = 'http://tlc.loinvoyant.com:4200/admin/' + p1.slugAdmin;
+        this.urlsondage = 'http://api.tlc.loinvoyant.com:4200/answer/' + p1.slug;
+        this.urlsondageadmin = 'http:/api.tlc.loinvoyant.com:4200/admin/' + p1.slugAdmin;
         this.urlsalon = p1.tlkURL;
         this.urlpad = p1.padURL;
         this.step = 2;
