@@ -6,4 +6,4 @@ jobs:
   build: 
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@main
+      - run: ./ci.Sh
