@@ -9,6 +9,6 @@ services:
     labels:
       traefik.enable: true
       traefik.docker.network: traefik_web
-      traefik.http.routers.front.entrypoints: websecure
-      traefik.http.routers.front.rule: "Host(`front.tlc.loinvoyant.com`)"
-      traefik.http.services.front.loadbalancer.server.port: 4200 
+      traefik.http.routers.api.entrypoints: websecure
+    ports:
+      - 4200:4200

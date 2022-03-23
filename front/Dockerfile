@@ -12,5 +12,6 @@ RUN apt install -y nodejs
 
 RUN npm install
 
+EXPOSE 4200
 
 CMD ["npm", "start"]
