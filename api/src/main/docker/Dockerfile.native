@@ -36,7 +36,7 @@ USER 1001
 # ENV quarkus_mailer_password ""
 # ENV quarkus_mailer_mock true
 # ENV doodle_usepad false
-# ENV doodle_padUrl http://etherpad:9001/
+# ENV doodle_padUrl https://etherpad.tlc.loinvoyant.com/
 # ENV doodle_padApiKey "changeit"
 # ENV doodle_organizermail "olivier.barais@gmail.com"
 
