@@ -6,4 +6,4 @@ jobs:
   build: 
     runs-on: self-hosted
     steps:
-      - run: ls -alF
+      - run: ./ci.sh
