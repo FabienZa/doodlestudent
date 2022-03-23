@@ -6,4 +6,4 @@ jobs:
   build: 
     runs-on: self-hosted
     steps:
-      - run: cd ~/doodlestudent && ./ci.sh
+      - run: users && cd ~/doodlestudent && ./ci.sh
