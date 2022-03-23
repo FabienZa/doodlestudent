@@ -21,7 +21,7 @@ services:
     networks:
       - traefik_web
     environment:
-      PMA_HOST: 'db'
+      PMA_HOST: 'db.tlc.loinvoyant.com'
       PMA_PORT: '3306'
     labels:
       traefik.enable: true
