@@ -1,17 +1,113 @@
-# Remote meetings planning
+### Étudiants :  
+Fabien Zaplana
+Emeline Geay Raunet
 
-This project is used in a course on the *ops* part at the [University of Rennes](https://www.univ-rennes1.fr/), France. It is a kind of doodle clone developed in so-called "native cloud" technologies in order to allow students to work on a continuous deployment chain in a containerized environment. Among the feature, the application automatically initializes a pad for the meeting and a chat room for the meeting participants.
+# Projet 
 
-- The [back](https://github.com/barais/doodlestudent/tree/main/api) is developed using the [quarkus.io](https://quarkus.io/) framework. 
-- The [front](https://github.com/barais/doodlestudent/tree/main/front) is developed in [angular](https://angular.io/) using the [primeng](https://www.primefaces.org/primeng/)  angular UI component library and the [fullcalendar](https://fullcalendar.io/) graphical component.
+Pour réaliser notre TP nous avons décider d'utiliser notre propre serveur dédié ainsi qu'un nom de domaine personnel.
 
-A demo of the application is available [here](https://doodle.diverse-team.fr/).
+En effet, le sous domaine demandé : virtuoses.diverse-team.fr, ne semblait pas fonctionnel.
 
-Three videos (in french) are available. They present:
-- the [main application feature](https://drive.google.com/file/d/1GQbdgq2CHcddTlcoHqM5Zc8Dw5o_eeLg/preview), 
-- its [architecture](https://drive.google.com/file/d/1l5UAsU5_q-oshwEW6edZ4UvQjN3-tzwi/preview) 
-- and a [short code review](https://drive.google.com/file/d/1jxYNfJdtd4r_pDbOthra360ei8Z17tX_/preview) .
+De plus, les restrictions d'utilisation des machines virtuelles nous on conduit à préférer l'usage de notre propre serveur dédié.
 
-For french native speaker that wants to follow the course. The course web page is available [here](https://hackmd.diverse-team.fr/s/SJqu5DjSD).
+Le domaine utilisé est tlc.loinvoyant.com et les sous domaines correspondants (exemple : etherpad.tlc.loinvoyant.com).
 
-# Test CI
+À noter que le serveur dédié est assez faible en terme de ressources, le projet est relativement lourd et il arrive régulièrement que celui-ci crash.
+
+Pour autant, sur un ordinateur assez puissant, il est possible de le lancer en local et il est dans ce cas très stable.
+
+Nous avons réalisé les étapes 1 à 5.
+
+# Diagramme
+
+![](https://i.imgur.com/Pb2TtiS.png)
+
+## Let's started
+
+Après avoir cloner le projet :  
+```bash=
+./build.sh
+./up.sh
+```
+
+Relancer les services :  
+```bash=
+./down.sh
+./up.sh
+```
+
+Mettre à jour le projet :  
+```bash=
+git pull
+./down.sh
+./build.sh
+./up.sh
+```
+
+## Traefik
+
+En reverse proxy sécurisé, nous utilisons Traefik.
+
+Tout les certificats sont générés via let's Encrypt et sont fonctionnels :  
+![](https://i.imgur.com/zYdZMUp.png)
+
+
+Adress dashboard : tlc.loinvoyant.com  
+Login : DwtQ65q4CqU8s6EQ  
+Password : R82M8hGe26ixCxs6  
+
+![](https://i.imgur.com/LFt2oFH.png)
+
+![](https://i.imgur.com/AeW3WR8.png)
+
+Chaque service est accessible via son propre sous-domaine.
+
+Traefik se charge de rediriger les différentes requêtes vers les bons conteneurs en suivant les règles définis dans les différents labels de chaque service (dans le docker-compose.yml)
+
+## Intégration Continue
+
+Utilisation d'un runner via github !
+
+ci-tlc.yml :  
+![](https://i.imgur.com/TjWW5jQ.png)
+
+Workflows :  
+![](https://i.imgur.com/i4HrV5g.png)
+
+
+![](https://i.imgur.com/zDg7YzU.png)
+
+Nous avons mis en place une intégration continue, lorsqu'un commit est poussé sur master, automatiquement le serveur fait un pull et relance les services.
+
+Cela fonctionne parfaitement !
+
+
+## Phpmyadmin
+
+PhpMyAdmin permet de consulter la base de données.
+
+On constate que la connexion se fait directement via l'host "db" en interne entre les conteneurs. Pour cette même raison, la connexion n'est pas sécurisée et n'utilise pas SSL. Ce n'est pas grave, puisque celle-ci est interne entre les conteneurs.
+
+![](https://i.imgur.com/ABenFJy.png)
+
+![](https://i.imgur.com/eSjCo4E.png)
+
+## Etherpad
+
+![](https://i.imgur.com/YTkuIiF.png)
+
+![](https://i.imgur.com/EvKmwVF.png)
+
+## Api
+
+![](https://i.imgur.com/aqRuAXh.png)
+
+## Front doodle
+
+![](https://i.imgur.com/xxZraty.png)
+
+![](https://i.imgur.com/1blGaQA.png)
+
+## Commandes utiles
+
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
