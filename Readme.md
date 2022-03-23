@@ -22,6 +22,21 @@ Nous avons réalisé les étapes 1 à 5.
 
 ![](https://i.imgur.com/Pb2TtiS.png)
 
+## Liens
+
+Dashboard: https://tlc.loinvoyant.com
+
+Login : DwtQ65q4CqU8s6EQ
+Password : R82M8hGe26ixCxs6
+
+phpMyAdmin: https://phpmyadmin.tlc.loinvoyant.com
+
+user: tlc
+password: tlc
+
+Etherpad: https://etherpad.tlc.loinvoyant.com
+Front: http://front.tlc.loinvoyant.com:4200
+
 ## Let's started
 
 Après avoir cloner le projet :  
@@ -72,8 +87,7 @@ ci-tlc.yml :
 ![](https://i.imgur.com/TjWW5jQ.png)
 
 Workflows :  
-![](https://i.imgur.com/i4HrV5g.png)
-
+![](https://i.imgur.com/90US7Nr.png)
 
 ![](https://i.imgur.com/zDg7YzU.png)
 
@@ -107,6 +121,8 @@ On constate que la connexion se fait directement via l'host "db" en interne entr
 ![](https://i.imgur.com/xxZraty.png)
 
 ![](https://i.imgur.com/1blGaQA.png)
+
+![](https://i.imgur.com/MUMwLP8.png)
 
 ## Commandes utiles
 
