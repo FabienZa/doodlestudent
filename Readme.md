@@ -66,6 +66,7 @@ En reverse proxy sécurisé, nous utilisons Traefik.
 Tout les certificats sont générés via let's Encrypt et sont fonctionnels :  
 ![](https://i.imgur.com/zYdZMUp.png)
 
+![](https://i.imgur.com/8VDXRwQ.png)
 
 Adress dashboard : tlc.loinvoyant.com  
 Login : DwtQ65q4CqU8s6EQ  
@@ -105,6 +106,8 @@ On constate que la connexion se fait directement via l'host "db" en interne entr
 ![](https://i.imgur.com/ABenFJy.png)
 
 ![](https://i.imgur.com/eSjCo4E.png)
+
+![](https://i.imgur.com/GbEYapu.png)
 
 ## Etherpad
 
