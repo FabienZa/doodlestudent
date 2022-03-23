@@ -24,7 +24,7 @@ COPY --chown=1001:root target/*-runner /work/application
 EXPOSE 8080
 USER 1001
 
-# ENV quarkus_datasource_jdbc_url "jdbc:mysql://tlc.loinvoyant.com/tlc?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true&serverTimezone=Europe/Paris"
+# ENV quarkus_datasource_jdbc_url "jdbc:mysql://db.tlc.loinvoyant.com/tlc?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true&serverTimezone=Europe/Paris"
 # ENV quarkus_datasource_username tlc
 # ENV quarkus_datasource_password tlc
 # ENV quarkus_hibernate_orm_database_generation update
